@@ -48,7 +48,7 @@
     color: var(--text-main);
     font-family: 'Plus Jakarta Sans', 'Prompt', sans-serif;
     min-height: 100vh;
-    padding-bottom: 80px;
+    padding-bottom: 60px;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -64,10 +64,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    margin-bottom: 40px;
-    padding-bottom: 24px;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--card-border);
-    flex-wrap: wrap;
   }
 
   .brand {
@@ -113,23 +112,9 @@
     font-weight: 400;
   }
 
-  .badge-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--primary);
-    background: var(--primary-light);
-    border: 1px solid rgba(79, 70, 229, 0.2);
-    padding: 6px 14px;
-    border-radius: 9999px;
-  }
-
   /* Step Containers */
   .step {
-    margin-top: 32px;
+    margin-top: 36px;
     animation: fadeIn 0.3s ease-out;
   }
 
@@ -142,7 +127,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .step-num {
@@ -165,14 +150,6 @@
     font-size: 18px;
     color: var(--text-main);
     letter-spacing: -0.2px;
-  }
-
-  .step-sub {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-left: 40px;
-    margin-bottom: 16px;
-    line-height: 1.5;
   }
 
   .card {
@@ -423,43 +400,6 @@
     box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
   }
 
-  /* Mode Switch Tabs */
-  .input-mode-tabs {
-    display: flex;
-    gap: 4px;
-    background: #e2e8f0;
-    padding: 4px;
-    border-radius: var(--radius-md);
-    margin-bottom: 20px;
-    width: fit-content;
-  }
-
-  .mode-tab {
-    padding: 8px 18px;
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: var(--radius-sm);
-    border: none;
-    background: transparent;
-    color: var(--text-muted);
-    cursor: pointer;
-    box-shadow: none;
-    transition: all 0.15s ease;
-  }
-
-  .mode-tab:hover:not(.active) {
-    color: var(--text-main);
-    background: rgba(255, 255, 255, 0.5);
-    transform: none;
-    box-shadow: none;
-  }
-
-  .mode-tab.active {
-    background: #ffffff;
-    color: var(--primary);
-    box-shadow: var(--shadow-sm);
-  }
-
   /* Size Input Grid */
   .size-grid {
     display: grid;
@@ -517,17 +457,18 @@
     background: #fff;
     width: 100%;
     outline: none;
+    transition: all 0.15s;
   }
 
   .size-input:focus {
     border-color: var(--primary);
   }
 
-  /* Form Elements */
-  textarea, input[type=text], input[type=number] {
+  /* Form Controls */
+  input[type=number] {
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
-    padding: 12px 14px;
+    padding: 10px 14px;
     border: 1px solid var(--card-border);
     border-radius: var(--radius-sm);
     background: #fff;
@@ -537,15 +478,9 @@
     transition: all 0.15s ease;
   }
 
-  textarea:focus, input[type=text]:focus, input[type=number]:focus {
+  input[type=number]:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px var(--primary-ring);
-  }
-
-  textarea {
-    min-height: 90px;
-    line-height: 1.5;
-    resize: vertical;
   }
 
   label.field-label {
@@ -744,20 +679,8 @@
     border-radius: 4px;
   }
 
-  footer {
-    margin-top: 48px;
-    text-align: center;
-    font-size: 13px;
-    color: var(--text-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
   @media (max-width: 640px) {
-    .step-sub, .card { margin-left: 0; }
-    .card { padding: 18px; }
+    .card { margin-left: 0; padding: 18px; }
   }
 </style>
 </head>
@@ -771,7 +694,6 @@
       </div>
       <div class="sub">Vector Number Compositor for Illustrator</div>
     </div>
-    <div class="badge-tag">⚡ 100% Client-Side Engine</div>
   </header>
 
   <!-- Step 1 -->
@@ -780,12 +702,11 @@
       <div class="step-num">1</div>
       <div class="step-title">อัปโหลดไฟล์ SVG ชุดเลข 0–9</div>
     </div>
-    <div class="step-sub">ไฟล์เดียวที่มีเลขทุกตัวอยู่รวมกัน — รองรับเลขที่ประกอบจากหลายเลเยอร์ (เส้นขอบ/ลายตัด)</div>
     <div class="card">
       <div class="drop" id="drop">
         <input type="file" id="fileInput" accept=".svg,image/svg+xml">
         <div class="icon-wrap">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         </div>
         <div class="main">คลิกเพื่อเลือกไฟล์ หรือลากไฟล์ .svg มาวางตรงนี้</div>
         <div class="sub">รองรับไฟล์เวกเตอร์ SVG ที่ Export จาก Adobe Illustrator</div>
@@ -800,7 +721,6 @@
       <div class="step-num">2</div>
       <div class="step-title">ตรวจสอบกลุ่มชิ้นส่วน แล้วจับคู่กับตัวเลข</div>
     </div>
-    <div class="step-sub">ระบบยึดกลุ่มชิ้นส่วนตามโครงสร้างไฟล์ต้นฉบับ — หากชิ้นส่วนกระจาย สามารถติ๊กเลือกเพื่อรวมชิ้นได้</div>
     <div class="card">
       <div class="toolbar">
         <span class="hint">เลือกหลายชิ้น (ติ๊กมุมซ้ายบน):</span>
@@ -821,26 +741,9 @@
       <div class="step-num">3</div>
       <div class="step-title">ระบุรายการเลขที่ต้องการคราฟต์</div>
     </div>
-    <div class="step-sub">สามารถเลือกกรอกแยกตามไซส์เสื้อ หรือพิมพ์รวมทั้งหมดได้ตามสะดวก</div>
     <div class="card">
-      <!-- Input Mode Switcher -->
-      <div class="input-mode-tabs">
-        <button type="button" class="mode-tab active" id="tabModeSize">👕 ใส่เบอร์ตามไซส์ (XS – 4XL)</button>
-        <button type="button" class="mode-tab" id="tabModeBulk">📝 กรอกรวมทั้งหมด</button>
-      </div>
-
-      <!-- Mode 1: By Size Grid (Default) -->
-      <div id="sizeModeContainer">
-        <div class="size-grid" id="sizeGrid">
-          <!-- Size inputs generated via JS -->
-        </div>
-      </div>
-
-      <!-- Mode 2: Bulk Textarea -->
-      <div id="bulkModeContainer" style="display:none;">
-        <label class="field-label">รายการเลขรวม (คั่นด้วย comma หรือขึ้นบรรทัดใหม่)</label>
-        <textarea id="orderInput" placeholder="07, 12, 56, 89, 90...">07, 12, 56, 89</textarea>
-      </div>
+      <!-- Size Grid Inputs -->
+      <div class="size-grid" id="sizeGrid"></div>
       
       <div class="row" style="margin-top:16px;">
         <div>
@@ -864,7 +767,6 @@
       <div class="step-num">4</div>
       <div class="step-title">ตรวจดูผลลัพธ์ และดาวน์โหลด</div>
     </div>
-    <div class="step-sub">ไฟล์ SVG คุณภาพสูง เปิดแก้ไขใน Adobe Illustrator ได้โดยตรง</div>
     <div class="card">
       <div class="preview-grid" id="previewGrid"></div>
       <div class="btn-row" style="margin-top:24px;">
@@ -879,11 +781,6 @@
       </div>
     </div>
   </div>
-
-  <footer>
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-    ประมวลผลบนเบราว์เซอร์ของคุณอย่างปลอดภัย — ข้อมูลไฟล์ไม่ถูกส่งไปยังเซิร์ฟเวอร์ใดๆ
-  </footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -898,24 +795,16 @@
   const assignGrid = document.getElementById('assignGrid');
   const digitStatus = document.getElementById('digitStatus');
   const generateBtn = document.getElementById('generateBtn');
-  const orderInput = document.getElementById('orderInput');
   const spacingInput = document.getElementById('spacingInput');
   const genMsg = document.getElementById('genMsg');
   const previewGrid = document.getElementById('previewGrid');
   const downloadZipBtn = document.getElementById('downloadZipBtn');
   const downloadSheetBtn = document.getElementById('downloadSheetBtn');
   const mergeBtn = document.getElementById('mergeBtn');
-
-  // Size list & Mode handling
-  const SIZES = ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
-  let currentMode = 'size'; // 'size' | 'bulk'
-  const tabModeSize = document.getElementById('tabModeSize');
-  const tabModeBulk = document.getElementById('tabModeBulk');
-  const sizeModeContainer = document.getElementById('sizeModeContainer');
-  const bulkModeContainer = document.getElementById('bulkModeContainer');
   const sizeGrid = document.getElementById('sizeGrid');
 
-  // Render Size Inputs
+  const SIZES = ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'];
+
   function initSizeGrid(){
     sizeGrid.innerHTML = '';
     SIZES.forEach(sz=>{
@@ -946,24 +835,6 @@
     });
   }
   initSizeGrid();
-
-  tabModeSize.addEventListener('click', ()=>{
-    currentMode = 'size';
-    tabModeSize.classList.add('active');
-    tabModeBulk.classList.remove('active');
-    sizeModeContainer.style.display = 'block';
-    bulkModeContainer.style.display = 'none';
-    updateGenerateEnabled();
-  });
-
-  tabModeBulk.addEventListener('click', ()=>{
-    currentMode = 'bulk';
-    tabModeBulk.classList.add('active');
-    tabModeSize.classList.remove('active');
-    sizeModeContainer.style.display = 'none';
-    bulkModeContainer.style.display = 'block';
-    updateGenerateEnabled();
-  });
 
   let pieces = [];
   let selectedIdx = new Set();
@@ -1210,33 +1081,20 @@
     return map;
   }
 
-  // Parses orders based on active mode
-  // returns: Array of { numStr: '07', size: 'M', filename: 'M_07' }
   function parseOrders(){
     const items = [];
-    if(currentMode === 'size'){
-      SIZES.forEach(sz=>{
-        const inp = document.getElementById(`sizeInput-${sz}`);
-        if(!inp) return;
-        const raw = inp.value.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean);
-        raw.forEach(n=>{
-          items.push({
-            numStr: n,
-            size: sz,
-            filename: `${sz}_${n}`
-          });
-        });
-      });
-    } else {
-      const raw = orderInput.value.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean);
+    SIZES.forEach(sz=>{
+      const inp = document.getElementById(`sizeInput-${sz}`);
+      if(!inp) return;
+      const raw = inp.value.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean);
       raw.forEach(n=>{
         items.push({
           numStr: n,
-          size: '',
-          filename: `${n}`
+          size: sz,
+          filename: `${sz}_${n}`
         });
       });
-    }
+    });
     return items;
   }
 
@@ -1257,8 +1115,6 @@
       genMsg.innerHTML = '';
     }
   }
-
-  orderInput.addEventListener('input', ()=>updateGenerateEnabled());
 
   function composeNumber(orderStr, spacing, digitMap){
     const chars = orderStr.split('');
